@@ -22,7 +22,8 @@ namespace IF\Blocks\Single_Post;
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block() {
-	register_block_type( __DIR__ . '/build' );
+function create_blocks() {
+	register_block_type( __DIR__ . '/dist/post' );
+	register_block_type( __DIR__ . '/dist/group' );
 }
-add_action( 'init', 'IF\Blocks\Single_Post\create_block' );
+add_action( 'init', 'IF\Blocks\Single_Post\create_blocks' );

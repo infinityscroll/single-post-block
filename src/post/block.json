@@ -6,7 +6,7 @@
 	"title": "Single Post Block",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"description": "Display an excerpt from a single post of your choosing.",
 	"supports": {
 		"html": false
 	},

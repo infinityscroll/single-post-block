@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/single-post-group",
+	"version": "0.1.0",
+	"title": "Single Post Block",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Display a collection of Single Post Blocks",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "single-post-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
