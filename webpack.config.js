@@ -3,18 +3,13 @@ const path = require( 'path' );
 
 module.exports = {
 	...defaultConfig,
+	context: path.resolve( process.cwd(), 'src' ),
 	entry: {
-		'post': {
-			import: './src/post/index.js',
-			filename: './post/[name][ext]'
-		},
-		'group': {
-			import: './src/group/index.js',
-			filename: './group/[name][ext]'
-		}
+		'post':  './post/index.js',
+		'group': './group/index.js'
 	},
 	output: {
 		...defaultConfig.output,
-		path: path.dirname( process.cwd(), 'dist' )
+		path: path.resolve( process.cwd(), 'dist' ),
 	}
 };
