@@ -11,7 +11,7 @@
 		"html": false
 	},
 	"textdomain": "single-post-block",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"editorScript": "file:../../build/post.js",
+	"editorStyle": "file:../../build/post.css",
+	"style": "file:../../build/style-post.css"
 }
