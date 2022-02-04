@@ -1,1 +1,31 @@
-.wp-block-single-post-block{border:1px dotted red}
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!../src/post/editor.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.single-post-block__post-selector {
+  border: 5px solid rgba(20, 20, 20, 0.25);
+}
+.single-post-block__post-selector label {
+  display: block;
+  padding: 1rem 1rem 0 1rem;
+}
+.single-post-block__post-preview {
+  border: 5px solid rgba(20, 20, 20, 0.25);
+  padding: 1rem;
+}
+.single-post-block__post-preview p:last-child {
+  margin-bottom: 0;
+}
+.single-post-block__loading-placeholder {
+  background: rgba(20, 20, 20, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+/*# sourceMappingURL=post.css.map*/

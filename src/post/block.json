@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/single-post-block",
+	"name": "infinity-scroll/single-post-block",
 	"version": "0.1.0",
 	"title": "Single Post Block",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "postExcerpt",
 	"description": "Display an excerpt from a single post of your choosing.",
 	"supports": {
 		"html": false
 	},
 	"textdomain": "single-post-block",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"editorScript": "file:./../../build/post.js",
+	"editorStyle": "file:./../../build/post.css",
+	"style": "file:./style-post.css"
 }

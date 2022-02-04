@@ -13,7 +13,9 @@
  * @package           create-block
  */
 
-namespace IF\Blocks\Single_Post;
+namespace InfinityScroll\Blocks\Single_Post;
+
+const PLUGIN_PATH = __DIR__;
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
@@ -26,4 +28,4 @@ function create_blocks() {
 	register_block_type( __DIR__ . '/src/post' );
 	register_block_type( __DIR__ . '/src/group' );
 }
-add_action( 'init', 'IF\Blocks\Single_Post\create_blocks' );
+add_action( 'init', 'InfinityScroll\Blocks\Single_Post\create_blocks' );

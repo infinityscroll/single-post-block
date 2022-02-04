@@ -1,25 +1,83 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
 import { __ } from '@wordpress/i18n';
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-import { useBlockProps } from '@wordpress/block-editor';
+import { __experimentalLinkControl as LinkControl, useBlockProps } from '@wordpress/block-editor';
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
+import { Spinner } from '@wordpress/components';
+
+import { useState, RawHTML } from '@wordpress/element';
+
+import apiFetch from '@wordpress/api-fetch';
+
 import './editor.scss';
+
+
+const PostPreview = ( props ) => {
+
+	const { postId, headingLevel } = props;
+
+	const [ thePost, setPostState ] = useState( null );
+	const [ isLoading, setLoadingState ] = useState( false );
+
+	let postClass = 'single-post-block__post-body';
+
+	if ( ! thePost && ! isLoading ) {
+		setLoadingState( 'loading' );
+		apiFetch( { 
+			path: '/wp/v2/posts/' + postId,
+		} )
+		.then( ( response ) => {
+			setPostState( { 
+				title: response.title.rendered, 
+				excerpt: RawHTML( { children: response.content.rendered, className: 'single-post-block__post-excerpt-wrapper' } )
+			} );
+			postClass = 'single-post-block__post-body single-post-block__post-body--ok-state';
+			setLoadingState( 'done' );
+		} )
+		.catch( ( e ) => {
+			setPostState( { title: 'Error retrieving post', excerpt: e.message || 'An error occurred.' } );
+			postClass = 'single-post-block__post-body single-post-block__post-body--error-state';
+			setLoadingState( 'error' );
+		} );
+	};
+
+	return (
+		<div className="single-post-block__post-preview">
+			{ thePost && (
+				<div className="{ postClass }">
+					<h2>{ thePost.title }</h2>
+					<div className="single-post-block__post-excerpt">{ thePost.excerpt }</div>
+				</div>
+			) || (
+				<div className="single-post-block__loading-placeholder">
+					<Spinner />
+				</div>
+			) }
+		</div>
+	);
+}
+
+const PostSelector = ( props ) => {
+	
+	const { onChange } = props;
+
+	return (
+		<div className="single-post-block__post-selector">
+			<label>Select a post to display:</label>
+			<LinkControl
+				suggestionsQuery={ {
+					type: 'post',
+					subtype: 'post',
+				} }
+				onChange={ ( value ) => {
+					onChange && onChange( value.id );
+				} }
+				noDirectEntry={ true }
+				settings={ [] }
+			/>
+		</div>
+	);
+};
+
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -29,13 +87,25 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( props ) {
+	const {
+		attributes: { postId, headingLevel },
+		setAttributes,
+		className
+	} = props;
+
+	const blockProps = useBlockProps();
+
 	return (
-		<p {...useBlockProps()}>
-			{__(
-				'Single Post Block – hello from the editor!',
-				'single-post-block'
-			)}
-		</p>
+		<div {...blockProps}>
+			{ postId && (
+				<PostPreview postId={postId} headingLevel={headingLevel} />
+			) || (
+				<PostSelector onChange={ ( postId ) => {
+					postId = parseInt( postId );
+					setAttributes( { postId } );
+				} } />
+			) }			
+		</div>
 	);
 }

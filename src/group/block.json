@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/single-post-group",
+	"name": "infinity-scroll/single-post-group",
 	"version": "0.1.0",
-	"title": "Single Post Block",
+	"title": "Single Post Group",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "group",
 	"description": "Display a collection of Single Post Blocks",
 	"supports": {
 		"html": false
 	},
 	"textdomain": "single-post-block",
-	"editorScript": "file:../../build/post.js",
-	"editorStyle": "file:../../build/post.css",
-	"style": "file:../../build/style-post.css"
+	"editorScript": "file:../../build/group.js",
+	"editorStyle": "file:../../build/group.css",
+	"style": "file:../../build/style-group.css"
 }
