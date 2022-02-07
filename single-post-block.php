@@ -30,7 +30,7 @@ function create_blocks() {
 			'render_callback' => apply_filters( 'single_post_block_render_callback', 'nfntscrl\Blocks\Single_Post\display_post' ),
 		]
 	);
-	register_block_type( __DIR__ . '/src/group' );
+	//register_block_type( __DIR__ . '/src/group' );
 }
 add_action( 'init', 'nfntscrl\Blocks\Single_Post\create_blocks' );
 
