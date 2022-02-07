@@ -1,4 +1,4 @@
-=== Single Post Block ===
+=== Single Post Excerpt Block ===
 Contributors:      Paul H. <paul@infinityscroll.blog>
 Tags:              block
 Tested up to:      5.9

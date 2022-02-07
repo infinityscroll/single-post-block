@@ -3,9 +3,8 @@
 	"apiVersion": 2,
 	"name": "infinity-scroll/single-post-block",
 	"version": "0.1.0",
-	"title": "Single Post Block",
+	"title": "Single Post Excerpt",
 	"category": "widgets",
-	"icon": "postExcerpt",
 	"description": "Display an excerpt from a single post of your choosing.",
 	"supports": {
 		"html": false

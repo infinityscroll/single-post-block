@@ -17,5 +17,8 @@
 	"devDependencies": {
 		"@wordpress/scripts": "^20.0.2",
 		"filemanager-webpack-plugin": "^6.1.7"
+	},
+	"dependencies": {
+		"@wordpress/icons": "^6.2.0"
 	}
 }

@@ -35,9 +35,13 @@ registerBlockType('infinity-scroll/single-post-block', {
 		postId: {
 			type: 'integer'
 		},
-		headingLevel: {
-			type: 'integer',
-			default: 2
+		displayOptions: {
+			type: 'object',
+			default: {
+				'headingLevel': null,
+				'tag':          'blockquote',
+				'showImage':    null,
+			}
 		}
 	},
 

@@ -26,4 +26,24 @@
 		justify-content: center;
 		min-height: 100px;
 	}
+	&__post-body {
+		display: grid;
+		grid-template-columns: auto 100px;
+		grid-template-rows: auto auto;
+		column-gap: 1em;
+	}
+	&__post-excerpt {
+		grid-row: 2 / span 2;
+		grid-column: 1 / span 1;
+		align-self: start;
+	}
+	&__post-image {
+		grid-row: 1 / span 2;
+		grid-column: 2 / span 1;
+		img {
+			width: 100px;
+			height: 100px;
+			object-fit: cover;
+		}
+	}
 }
